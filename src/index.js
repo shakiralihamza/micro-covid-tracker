@@ -13,7 +13,7 @@ const theme = createTheme({
         mode: 'dark',
         primary: teal,
         secondary: orange,
-    },
+    }
 });
 
 ReactDOM.render(

@@ -4,7 +4,7 @@ import MyContext from "../Context/MyContext";
 
 const MenuButtonS = styled(Button)(({theme}) => ({
     borderRadius: '20px',
-    textTransform: "none",
+    textTransform: "capitalize",
     border: '1.5px solid',
     borderColor: theme.palette.primary.dark,
     backgroundColor: theme.palette.primary.dark,
@@ -23,9 +23,10 @@ function MenuButton({menuName}) {
     return (
         <span onClick={handleMenuClick}>
             <MenuButtonS
+                disableRipple
                 sx={{borderColor: currentMenu === menuName ? 'white' : ''}}
                 variant="contained"
-            >Statistics</MenuButtonS>
+            >{menuName}</MenuButtonS>
         </span>
     );
 }
