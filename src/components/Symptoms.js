@@ -49,6 +49,8 @@ function Symptoms() {
                             show, however it can take up to 14 days.
                         </p>
                         <Typography gutterBottom fontSize={14} sx={{color: 'text.disabled'}}>For informational purposes only. Consult your local medical authority for advice.</Typography>
+                        <br/>
+                        <br/>
                     </Typography>
                 </Grid>
             </Grid>

@@ -13,7 +13,7 @@ function MainMenu() {
                     <Stack spacing={2} direction="row">
                         <MenuButton menuName={'statistics'}/>
                         <MenuButton menuName={'symptoms'}/>
-                        <MenuButton menuName={'precautions'}/>
+                        <MenuButton menuName={'prevention'}/>
                     </Stack>
                 </Grid>
             </Grid>
