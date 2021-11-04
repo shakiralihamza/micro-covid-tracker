@@ -5,7 +5,7 @@ import MenuButton from "./MenuButton";
 function MainMenu() {
     return (
         <Container maxWidth="lg">
-            <Grid container style={{margin: '50px 0', padding: '0 40px'}} spacing={3} justifyContent={"space-between"}>
+            <Grid container style={{margin: '50px 0 30px', padding: '0 50px'}} justifyContent={"space-between"}>
                 <Grid item>
                     <Typography variant={"h5"}>Coronavirus Disease</Typography>
                 </Grid>

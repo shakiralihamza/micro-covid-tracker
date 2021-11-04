@@ -24,7 +24,7 @@ function MenuButton({menuName}) {
         <span onClick={handleMenuClick}>
             <MenuButtonS
                 disableRipple
-                sx={{borderColor: currentMenu === menuName ? 'white' : ''}}
+                sx={{borderColor: currentMenu === menuName ? '#dee3de' : ''}}
                 variant="contained"
             >{menuName}</MenuButtonS>
         </span>
