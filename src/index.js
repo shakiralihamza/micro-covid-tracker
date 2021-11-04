@@ -3,9 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+import {createTheme} from '@mui/material/styles';
+import {ThemeProvider} from "@emotion/react";
+import {CssBaseline} from "@mui/material";
+import {orange, teal} from "@mui/material/colors";
+
+const theme = createTheme({
+    palette: {
+        mode: 'dark',
+        primary: teal,
+        secondary: orange,
+    },
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <App/>
+        </ThemeProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

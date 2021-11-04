@@ -3,11 +3,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-
+        <center>
           COVID TRACKER
-
-      </header>
+        </center>
     </div>
   );
 }
