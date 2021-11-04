@@ -4,6 +4,7 @@ import MyContext from "./Context/MyContext";
 import {useState} from "react";
 import Statistics from "./components/Statistics";
 import {Divider} from "@mui/material";
+import Symptoms from "./components/Symptoms";
 
 function App() {
     const [currentMenu, setCurrentMenu] = useState('statistics');
@@ -17,7 +18,8 @@ function App() {
         <MyContext.Provider value={contextData}>
             <MainMenu/>
             <Divider />
-            <Statistics/>
+            {currentMenu==='statistics'?<Statistics/>:null}
+            {currentMenu==='symptoms'?<Symptoms/>:null}
         </MyContext.Provider>
     );
 }
