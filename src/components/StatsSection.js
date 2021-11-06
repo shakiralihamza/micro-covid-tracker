@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Divider, Grid, Typography} from "@mui/material";
 import MyContext from "../Context/MyContext";
+import NumberFormat from "react-number-format";
 
 function StatsSection({resource}) {
     const {time} = useContext(MyContext);
@@ -27,18 +28,36 @@ function StatsSection({resource}) {
             <Grid container spacing={0}>
                 <Grid item xs={5}>
                     <Typography sx={{color: 'text.secondary'}} fontSize={11}>Cases</Typography>
-                    <Typography fontSize={15}>{cases}</Typography>
+                    <Typography fontSize={15}>
+                        <NumberFormat
+                            value={cases}
+                            displayType="text"
+                            thousandSeparator={true}
+                        />
+                    </Typography>
                 </Grid>
                 <Divider orientation={"vertical"} flexItem/>
 
                 <Grid item xs={5} style={{paddingLeft: '10px'}}>
                     <Typography sx={{color: 'text.secondary'}} fontSize={11}>Deaths</Typography>
-                    <Typography fontSize={15}>{deaths}</Typography>
+                    <Typography fontSize={15}>
+                        <NumberFormat
+                            value={deaths}
+                            displayType="text"
+                            thousandSeparator={true}
+                        />
+                    </Typography>
                 </Grid>
 
                 <Grid item xs={12} style={{marginTop: '10px'}}>
                     <Typography sx={{color: 'text.secondary'}} fontSize={11}>Recovered</Typography>
-                    <Typography fontSize={15}>{recovered}</Typography>
+                    <Typography fontSize={15}>
+                        <NumberFormat
+                            value={recovered}
+                            displayType="text"
+                            thousandSeparator={true}
+                        />
+                    </Typography>
                 </Grid>
             </Grid>
         );
