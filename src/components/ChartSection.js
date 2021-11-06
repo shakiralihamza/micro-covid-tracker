@@ -5,7 +5,6 @@ import MyContext from "../Context/MyContext";
 function ChartSection({resource}) {
     const {time} = useContext(MyContext);
     const data = resource.read();
-
     let cases, deaths, recovered;
     if (time === 'alltime') {
         cases = data.cases;

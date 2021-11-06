@@ -14,22 +14,24 @@ function Statistics() {
 
     return (
         <Container maxWidth={"lg"}>
-            <Grid container style={{margin: '30px 0 10px', padding: '0 50px'}}>
+            <Grid container style={{margin: '30px 0 10px'}}>
                 <Grid item>
                     <Typography variant={'body1'} fontSize={20}>
                         Statistics
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container style={{padding: '0 50px'}}>
-                <Grid item xs={12}>
+            <Grid container>
+                <Grid item>
                     <Typography component={"span"} sx={{color: 'text.secondary', fontSize: '14px'}}>
                         From&nbsp;
                         <Typography component={'span'} sx={{color: 'text.primary', fontSize: '14px'}}>
-                            NovelCOVID API
+                            Novel COVID API
                         </Typography>
                     </Typography>
                 </Grid>
+            </Grid>
+            <Grid container>
                 <Grid item style={{marginTop: '20px'}}>
                     <SelectCountryButton/>
                 </Grid>
@@ -37,18 +39,17 @@ function Statistics() {
                     <SelectTimeButton/>
                 </Grid>
             </Grid>
-            <Grid container style={{margin: '30px 0 30px', padding: '0 50px'}}>
-                <Grid item xs={8}>
-                    <Suspense fallback={"Loading..."}>
-                        <ChartSection resource={resource} />
-                    </Suspense>
-                </Grid>
-                <Divider orientation={"vertical"} flexItem/>
-                <Grid item xs={3} style={{padding: '20px 0 0 20px'}}>
-                    <Suspense fallback={"Loading..."}>
-                        <StatsSection resource={resource} />
-                    </Suspense>
-                </Grid>
+
+            <Grid container sx={{margin: '30px 0 30px'}}>
+                <Suspense fallback={"Loading..."}>
+                    <Grid item xs={12} md={8} order={{xs: 1, md: 0}} sx={{marginTop: {xs: '30px', md: 0}}}>
+                        <ChartSection resource={resource}/>
+                    </Grid>
+                    <Divider orientation={"vertical"} flexItem/>
+                    <Grid item xs={12} md={3} sx={{padding: '20px 0 0 20px'}}>
+                        <StatsSection resource={resource}/>
+                    </Grid>
+                </Suspense>
             </Grid>
         </Container>
     );

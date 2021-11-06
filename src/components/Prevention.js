@@ -1,18 +1,18 @@
 import React from 'react';
-import {Avatar, Container, Grid, Paper, Typography} from "@mui/material";
+import {Avatar, Box, Container, Grid, Paper, Typography} from "@mui/material";
 
 function Prevention() {
     return (
         <Container maxWidth={"lg"}>
-            <Grid container style={{margin: '30px 0 10px', padding: '0 50px'}}>
+            <Grid container style={{margin: '30px 0 10px'}}>
                 <Grid item>
                     <Typography variant={'body1'} fontSize={20}>
                         Prevention
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container style={{marginTop: '20px', padding: '0 50px'}}>
-                <Grid item xs={8}>
+            <Grid container style={{marginTop: '20px'}}>
+                <Grid item xs={12} sm={11} md={10} lg={8}>
                     <Paper variant={"outlined"} sx={{width: '100%', padding: '20px 0'}}>
                         <Grid container justifyContent={"center"} direction={"column"} alignItems={"center"} spacing={1}>
                             <Grid item>
@@ -20,7 +20,7 @@ function Prevention() {
                             </Grid>
                             <Grid item>
                                 <Typography variant={'h4'} gutterBottom sx={{color: 'text.secondary'}} fontWeight={900}>
-                                    Wear a mask.
+                                    <Box component={"span"} sx={{display: {xs: 'none', sm: 'inline'}}}>Wear a mask.&nbsp;</Box>
                                     Save lives.
                                 </Typography>
                             </Grid>

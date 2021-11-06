@@ -4,15 +4,15 @@ import {Container, Divider, Grid, Typography} from "@mui/material";
 function Symptoms() {
     return (
         <Container maxWidth={"lg"}>
-            <Grid container style={{margin: '30px 0 10px', padding: '0 50px'}}>
+            <Grid container style={{margin: '30px 0 10px'}}>
                 <Grid item>
                     <Typography variant={'body1'} fontSize={20}>
                         Symptoms
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container style={{marginTop: '20px', padding: '0 50px'}}>
-                <Grid item sx={{color: 'text.secondary'}} xs={8}>
+            <Grid container style={{marginTop: '20px'}}>
+                <Grid item sx={{color: 'text.secondary'}} sm={10} md={8}>
                     COVID-19 affects different people in different ways. Most infected people will develop mild to
                     moderate illness and recover without hospitalization.
                     <br/>
