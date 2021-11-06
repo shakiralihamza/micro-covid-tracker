@@ -16,12 +16,12 @@ const theme = createTheme({
     }
 });
 
-ReactDOM.render(
+const element = document.getElementById("root")
+ReactDOM.createRoot(element).render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <App/>
         </ThemeProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );
