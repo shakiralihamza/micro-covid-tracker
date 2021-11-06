@@ -1,6 +1,8 @@
 import React from 'react';
 import {Container, Divider, Grid, Typography} from "@mui/material";
 import SelectCountryButton from "./SelectCountryButton";
+import ChartSection from "./ChartSection";
+import StatsSection from "./StatsSection";
 
 function Statistics() {
     return (
@@ -33,22 +35,11 @@ function Statistics() {
             </Grid>
             <Grid container style={{margin: '30px 0 10px', padding: '0 50px', height:'500px'}}>
                 <Grid item xs={8}>
-                    Chart
+                    <ChartSection/>
                 </Grid>
                 <Divider orientation={"vertical"} flexItem/>
                 <Grid item xs={3} style={{padding: '20px 0 0 20px'}}>
-                    <Grid container spacing={0}>
-                        <Grid item xs={8}>
-                            <Typography sx={{color: 'text.secondary'}} fontSize={11}>Total cases</Typography>
-                            <Typography fontSize={15}>441K</Typography>
-                        </Grid>
-                        <Divider orientation={"vertical"} flexItem/>
-
-                        <Grid item xs={3} style={{paddingLeft: '10px'}}>
-                            <Typography sx={{color: 'text.secondary'}} fontSize={11}>Deaths</Typography>
-                            <Typography fontSize={15}>12,936</Typography>
-                        </Grid>
-                    </Grid>
+                   <StatsSection/>
                 </Grid>
             </Grid>
         </Container>
