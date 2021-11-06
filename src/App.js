@@ -1,4 +1,5 @@
 import './App.css';
+import React from "react";
 import MainMenu from "./components/MainMenu";
 import MyContext from "./Context/MyContext";
 import {useState} from "react";
@@ -9,10 +10,18 @@ import Prevention from "./components/Prevention";
 
 function App() {
     const [currentMenu, setCurrentMenu] = useState('statistics');
+    const [country, setCountry] = useState('worldwide');
+    const [time, setTime] = useState('alltime');
 
     const contextData = {
         currentMenu,
-        setCurrentMenu
+        setCurrentMenu,
+
+        country,
+        setCountry,
+
+        time,
+        setTime,
     }
 
     return (

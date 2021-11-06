@@ -1,38 +1,42 @@
-import React from 'react';
-import {Line} from "react-chartjs-2";
+import React, {useContext} from 'react';
+import {Bar} from "react-chartjs-2";
+import MyContext from "../Context/MyContext";
 
-function ChartSection() {
+function ChartSection({resource}) {
+    const {time} = useContext(MyContext);
+    const data = resource.read();
+
+    let cases, deaths, recovered;
+    if (time === 'alltime') {
+        cases = data.cases;
+        deaths = data.deaths;
+        recovered = data.recovered;
+    } else if (time === 'today') {
+        cases = data.todayCases;
+        deaths = data.todayDeaths;
+        recovered = data.todayRecovered;
+    }
     return (
         <>
-            <Line data={{
-                labels: ['pipo1', 'pipo2', 'pipo2', 'pipo2', 'pipo2'],
-                datasets: [{
-                    data: [5, 8, 34, 756],
-                    label: 'confirmed',
-                    borderColor: '#3333ff',
-                    fill: false
-                }, {
-                    data: [5, 454654, 34, 7566456, 4565464],
-                    label: 'deaths',
-                    borderColor: '#93457f',
-                    fill: true
-                }, {
-                    data: [5, 5654, 34, 756, 456546],
-                    label: 'deaths',
-                    borderColor: '#2f8dbe',
-                    fill: true
-                }, {
-                    data: [5, 4554, 6546, 756, 456],
-                    label: 'deaths',
-                    borderColor: '#3a9f3b',
-                    fill: true
-                }, {
-                    data: [556, 4554, 34, 756, 456456],
-                    label: 'deaths',
-                    borderColor: '#ec4747',
-                    fill: true
-                }]
-            }} type={"line"}/>
+            <Bar
+                data={{
+                    labels: ['Cases', 'Recovered', 'Deaths'],
+                    datasets: [
+                        {
+                            label: 'Number of people',
+                            backgroundColor: ['rgba(0, 0, 255, 0.1)', 'rgba(0, 255, 0, 0.1)', 'rgba(255, 0, 0, 0.1)'],
+                            borderColor: ['rgba(0, 0, 255)', 'rgba(0, 255, 0)', 'rgba(255, 0, 0)'],
+                            data: [cases, recovered, deaths],
+                            borderWidth: 0.7
+                        },
+                    ],
+                }}
+                options={{
+                    legend: { display: false },
+                    // title: { display: true, text: `Current state in ${country}` },
+                    title: { display: true, text: `Current state in ${"italy"}` },
+                }}
+             type={"bar"}/>
         </>
     );
 }
