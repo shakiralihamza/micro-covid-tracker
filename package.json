@@ -11,9 +11,9 @@
     "@testing-library/user-event": "^12.1.10",
     "chart.js": "^3.6.0",
     "country-flag-emoji": "^1.0.3",
-    "react": "^17.0.2",
+    "react": "0.0.0-experimental-ee069065d-20211105",
     "react-chartjs-2": "^3.3.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "0.0.0-experimental-ee069065d-20211105",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },

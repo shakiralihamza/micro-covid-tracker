@@ -33,7 +33,7 @@ function Statistics() {
                     <SelectCountryButton/>
                 </Grid>
             </Grid>
-            <Grid container style={{margin: '30px 0 10px', padding: '0 50px', height:'500px'}}>
+            <Grid container style={{margin: '30px 0 30px', padding: '0 50px'}}>
                 <Grid item xs={8}>
                     <ChartSection/>
                 </Grid>
