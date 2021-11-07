@@ -1,5 +1,5 @@
 import React, {Suspense, useContext} from 'react';
-import {Container, Divider, Grid, Typography} from "@mui/material";
+import {Box, Container, Divider, Grid, LinearProgress, Typography} from "@mui/material";
 import SelectCountryButton from "./SelectCountryButton";
 import ChartSection from "./ChartSection";
 import StatsSection from "./StatsSection";
@@ -12,6 +12,11 @@ function Statistics() {
     const {country} = useContext(MyContext);
     const resource = createResource(country);
 
+    const linearPreloader = () => (
+        <Box sx={{width: '100%'}}>
+            <LinearProgress/>
+        </Box>
+    );
     return (
         <Container maxWidth={"lg"}>
             <Grid container style={{margin: '30px 0 10px'}}>
@@ -41,7 +46,7 @@ function Statistics() {
             </Grid>
 
             <Grid container sx={{margin: '30px 0 30px'}}>
-                <Suspense fallback={"Loading..."}>
+                <Suspense fallback={linearPreloader()}>
                     <Grid item xs={12} md={8} order={{xs: 1, md: 0}} sx={{marginTop: {xs: '30px', md: 0}}}>
                         <ChartSection resource={resource}/>
                     </Grid>
