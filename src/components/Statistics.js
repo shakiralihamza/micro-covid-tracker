@@ -32,7 +32,7 @@ function Statistics() {
                     <Typography component={"span"} sx={{color: 'text.secondary', fontSize: '14px'}}>
                         From&nbsp;
                         <Typography component={'span'} sx={{color: 'text.primary', fontSize: '14px'}}>
-                            Novel COVID API
+                            Johns Hopkins CSSE
                         </Typography>
                     </Typography>
                 </Grid>
@@ -52,7 +52,7 @@ function Statistics() {
                         <ChartSection resource={resource}/>
                     </Grid>
                     <Divider orientation={"vertical"} flexItem/>
-                    <Grid item xs={12} md={3} sx={{padding: '20px 0 0 20px'}}>
+                    <Grid item xs={12} md={3} sx={{paddingTop: '20px'}}>
                         <StatsSection resource={resource}/>
                     </Grid>
                 </Suspense>
