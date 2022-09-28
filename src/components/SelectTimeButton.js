@@ -6,20 +6,11 @@ import MyContext from "../Context/MyContext";
 
 export default function SelectTimeButton() {
     const {time, setTime} = useContext(MyContext);
-
     const [open, setOpen] = React.useState(false);
 
-    const handleChange = (event) => {
-        setTime(event.target.value);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    const handleChange = (event) => setTime(event.target.value);
+    const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(true);
 
     return (
         <div>
@@ -39,7 +30,7 @@ export default function SelectTimeButton() {
                         All time
                     </MenuItem>
 
-                    <MenuItem value={'today'} sx={{fontSize: '12px', color:'text.secondary'}}>
+                    <MenuItem value={'today'} sx={{fontSize: '12px', color: 'text.secondary'}}>
                         Today
                     </MenuItem>
 

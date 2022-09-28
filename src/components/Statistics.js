@@ -1,4 +1,4 @@
-import React, {Suspense, useContext} from 'react';
+import React, {Suspense, useContext, useMemo} from 'react';
 import {Box, Container, Divider, Grid, LinearProgress, Typography} from "@mui/material";
 import SelectCountryButton from "./SelectCountryButton";
 import ChartSection from "./ChartSection";
@@ -10,13 +10,14 @@ import MyContext from "../Context/MyContext";
 
 function Statistics() {
     const {country} = useContext(MyContext);
-    const resource = createResource(country);
+    const resource = useMemo(() => createResource(country), [country])
 
     const linearPreloader = () => (
         <Box sx={{width: '100%'}}>
             <LinearProgress/>
         </Box>
     );
+
     return (
         <Container maxWidth={"lg"}>
             <Grid container style={{margin: '30px 0 10px'}}>

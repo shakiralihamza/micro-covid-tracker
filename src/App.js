@@ -1,4 +1,3 @@
-import './App.css';
 import React from "react";
 import MainMenu from "./components/MainMenu";
 import MyContext from "./Context/MyContext";
@@ -28,9 +27,9 @@ function App() {
         <MyContext.Provider value={contextData}>
             <MainMenu/>
             <Divider />
-            {currentMenu==='statistics'?<Statistics/>:null}
-            {currentMenu==='symptoms'?<Symptoms/>:null}
-            {currentMenu==='prevention'?<Prevention/>:null}
+            {currentMenu==='statistics'&&<Statistics/>}
+            {currentMenu==='symptoms'&&<Symptoms/>}
+            {currentMenu==='prevention'&&<Prevention/>}
         </MyContext.Provider>
     );
 }

@@ -1,7 +1,12 @@
 async function fetchData(country) {
-    country = country === 'worldwide'?'all':`countries/${country}`;
-    // const response = await fetch(`https://corona.lmao.ninja/v2/${country}`)
-    const response = await fetch(`https://corona.lmao.ninja/v2/${country}`)
+
+    let response;
+    if (country === 'worldwide') {
+        response = await fetch(`https://api.covid19api.com/world/total`)
+    } else {
+        response = await fetch(`https://api.covid19api.com/total/country/${country}`)
+    }
+
     return await response.json()
 }
 

@@ -16,8 +16,6 @@ const theme = createTheme({
     }
 });
 
-// ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-
 const element = document.getElementById("root")
 ReactDOM.createRoot(element).render(
     <ThemeProvider theme={theme}>

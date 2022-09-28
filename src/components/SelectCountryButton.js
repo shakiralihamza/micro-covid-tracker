@@ -7,20 +7,12 @@ import MyContext from "../Context/MyContext";
 
 export default function SelectCountryButton() {
     const {country, setCountry} = useContext(MyContext);
-
     const [open, setOpen] = React.useState(false);
 
-    const handleChange = (event) => {
-        setCountry(event.target.value);
-    };
+    const handleChange = (event) => setCountry(event.target.value);
+    const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(true);
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
     const countries = countryFlagEmoji.list.map((item) => ({name: item.name, emoji: item.emoji}));
 
     return (

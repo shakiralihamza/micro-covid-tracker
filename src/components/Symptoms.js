@@ -16,7 +16,7 @@ function Symptoms() {
                     COVID-19 affects different people in different ways. Most infected people will develop mild to
                     moderate illness and recover without hospitalization.
                     <br/>
-                    <Divider style={{margin:'20px 0'}}/>
+                    <Divider style={{margin: '20px 0'}}/>
                     <Typography fontSize={14}>
                         Most common symptoms:
                         <ul style={{margin: 0, padding: '0 0 0 20px'}}>
@@ -48,7 +48,8 @@ function Symptoms() {
                         <p>On average it takes 5–6 days from when someone is infected with the virus for symptoms to
                             show, however it can take up to 14 days.
                         </p>
-                        <Typography gutterBottom fontSize={14} sx={{color: 'text.disabled'}}>For informational purposes only. Consult your local medical authority for advice.</Typography>
+                        <Typography gutterBottom fontSize={14} sx={{color: 'text.disabled'}}>For informational purposes
+                            only. Consult your local medical authority for advice.</Typography>
                         <br/>
                         <br/>
                     </Typography>

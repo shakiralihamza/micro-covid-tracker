@@ -11,61 +11,66 @@ function StatsSection({resource}) {
     const [deaths, setDeaths] = useState(0);
     const [recovered, setRecovered] = useState(0);
 
-    const found = !!data.cases // set found to true/false depending on data.cases
+    let _deaths;
+    let _cases;
+    let _recovered;
+
+    if (country === 'worldwide') {
+        _deaths = data.TotalDeaths;
+        _cases = data.TotalConfirmed;
+        _recovered = data.TotalRecovered;
+    } else {
+        if (time === 'alltime') {
+            _deaths = data.reduce((acc, item) => acc + item.Deaths, 0);
+            _cases = data.reduce((acc, item) => acc + item.Confirmed, 0);
+            _recovered = data.reduce((acc, item) => acc + item.Recovered, 0);
+        } else {
+            _deaths = data[data.length - 1].Deaths;
+            _cases = data[data.length - 1].Confirmed;
+            _recovered = data[data.length - 1].Recovered;
+        }
+    }
 
     useEffect(() => {
-        if (time === 'alltime') {
-            setCases(data.cases);
-            setDeaths(data.deaths);
-            setRecovered(data.recovered);
-        } else if (time === 'today') {
-            setCases(data.todayCases);
-            setDeaths(data.todayDeaths);
-            setRecovered(data.todayRecovered);
-        }
-    }, [time, country, data.cases, data.deaths, data.recovered, data.todayCases, data.todayDeaths, data.todayRecovered])
+        setCases(_cases);
+        setDeaths(_deaths);
+        setRecovered(_recovered);
+    }, [time, country, _cases, _deaths, _recovered])
 
-    if (found) {
-        return (
-            <Grid container spacing={3} justifyContent={"center"}>
-                <Grid item xs={"auto"} md={12}>
-                    <Typography sx={{color: 'text.secondary'}} fontSize={11}>Cases</Typography>
-                    <Typography fontSize={15}>
-                          <NumberFormat
-                            value={cases}
-                            displayType="text"
-                            thousandSeparator={true}
-                        />
-                        {/*{cases}*/}
-                    </Typography>
-                </Grid>
-                <Grid item xs={"auto"} md={12}>
-                    <Typography sx={{color: 'text.secondary'}} fontSize={11}>Deaths</Typography>
-                    <Typography fontSize={15}>
-                          <NumberFormat
-                            value={deaths}
-                            displayType="text"
-                            thousandSeparator={true}
-                        />
-                        {/*{deaths}*/}
-                    </Typography>
-                </Grid>
-                <Grid item xs={"auto"} md={12}>
-                    <Typography sx={{color: 'text.secondary'}} fontSize={11}>Recovered</Typography>
-                    <Typography fontSize={15}>
-                        <NumberFormat
-                            value={recovered}
-                            displayType="text"
-                            thousandSeparator={true}
-                        />
-                        {/*{recovered}*/}
-                    </Typography>
-                </Grid>
+    return (
+        <Grid container spacing={3} justifyContent={"center"}>
+            <Grid item xs={"auto"} md={12}>
+                <Typography sx={{color: 'text.secondary'}} fontSize={11}>Cases</Typography>
+                <Typography fontSize={15}>
+                    <NumberFormat
+                        value={cases}
+                        displayType="text"
+                        thousandSeparator={true}
+                    />
+                </Typography>
             </Grid>
-        );
-    } else {
-        return "Data not found"
-    }
+            <Grid item xs={"auto"} md={12}>
+                <Typography sx={{color: 'text.secondary'}} fontSize={11}>Deaths</Typography>
+                <Typography fontSize={15}>
+                    <NumberFormat
+                        value={deaths}
+                        displayType="text"
+                        thousandSeparator={true}
+                    />
+                </Typography>
+            </Grid>
+            <Grid item xs={"auto"} md={12}>
+                <Typography sx={{color: 'text.secondary'}} fontSize={11}>Recovered</Typography>
+                <Typography fontSize={15}>
+                    <NumberFormat
+                        value={recovered}
+                        displayType="text"
+                        thousandSeparator={true}
+                    />
+                </Typography>
+            </Grid>
+        </Grid>
+    );
 }
 
 export default StatsSection;

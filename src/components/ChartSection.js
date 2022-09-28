@@ -3,17 +3,27 @@ import {Bar} from "react-chartjs-2";
 import MyContext from "../Context/MyContext";
 
 function ChartSection({resource}) {
-    const {time} = useContext(MyContext);
+    const {time, country} = useContext(MyContext);
     const data = resource.read();
-    let cases, deaths, recovered;
-    if (time === 'alltime') {
-        cases = data.cases;
-        deaths = data.deaths;
-        recovered = data.recovered;
-    } else if (time === 'today') {
-        cases = data.todayCases;
-        deaths = data.todayDeaths;
-        recovered = data.todayRecovered;
+
+    let deaths;
+    let cases;
+    let recovered;
+
+    if (country === 'worldwide') {
+        deaths = data.TotalDeaths;
+        cases = data.TotalConfirmed;
+        recovered = data.TotalRecovered;
+    } else {
+        if (time === 'alltime') {
+            deaths = data.reduce((acc, item) => acc + item.Deaths, 0);
+            cases = data.reduce((acc, item) => acc + item.Confirmed, 0);
+            recovered = data.reduce((acc, item) => acc + item.Recovered, 0);
+        } else {
+            deaths = data[data.length - 1].Deaths;
+            cases = data[data.length - 1].Confirmed;
+            recovered = data[data.length - 1].Recovered;
+        }
     }
     return (
         <>
@@ -31,11 +41,10 @@ function ChartSection({resource}) {
                     ],
                 }}
                 options={{
-                    legend: { display: false },
-                    // title: { display: true, text: `Current state in ${country}` },
-                    title: { display: true, text: `Current state in ${"italy"}` },
+                    legend: {display: false},
+                    title: { display: true, text: `Current state in ${country}` },
                 }}
-             type={"bar"}/>
+                type={"bar"}/>
         </>
     );
 }
