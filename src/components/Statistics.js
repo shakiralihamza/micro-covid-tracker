@@ -52,7 +52,7 @@ function Statistics() {
                         <ChartSection resource={resource}/>
                     </Grid>
                     <Divider orientation={"vertical"} flexItem/>
-                    <Grid item xs={12} md={3} sx={{paddingTop: '20px'}}>
+                    <Grid item xs={12} md={3} sx={{paddingTop: '20px', paddingLeft: {xs: 0, md: 2}}}>
                         <StatsSection resource={resource}/>
                     </Grid>
                 </Suspense>
